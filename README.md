@@ -1,24 +1,21 @@
 # SearchIQS Ashford Land Records Scraper
 
-A Python-based web scraper developed for the Adoraxe Python Web Scraper Challenge.
+A Python-based web scraping project developed for the Adoraxe Python Web Scraper Challenge.
 
-The scraper extracts Land Records from the SearchIQS Ashford, Connecticut website and exports the collected records to CSV and Google Sheets.
+The project extracts Land Records from the SearchIQS Ashford, Connecticut website and exports the collected records to CSV and Google Sheets.
 
 ## Features
 
-- Python-based scraping
-- Dynamic date range
-- Searches the previous 80 days from the current date
+- Python-based web scraping
+- Dynamic 80-day date range
 - Land Records filtering
-- Handles multiple result pages
-- Extracts all required record fields
-- Removes duplicate records
-- Exports results to CSV
-- Uploads results to Google Sheets
+- Multiple-page result handling
+- Extraction of all required fields
+- Duplicate removal
+- CSV export
+- Google Sheets export
 
 ## Data Extracted
-
-The scraper extracts:
 
 - Party 1
 - Party 2
@@ -29,18 +26,18 @@ The scraper extracts:
 - Additional Description
 - Related
 
-## Technologies Used
+## Technologies
 
 - Python
 - Requests
 - BeautifulSoup
 - Pandas
 - gspread
+- Google Authentication
 - Google Sheets API
 
 ## Project Structure
 
-```text
 python-web-scraper/
 │
 ├── scraper.py
@@ -51,3 +48,60 @@ python-web-scraper/
 ├── sample_output.csv
 ├── results.html
 └── results_page2.html
+
+## Installation
+
+Install the required dependencies:
+
+pip install -r requirements.txt
+
+## Running the Scraper
+
+Run:
+
+python scraper.py
+
+The date range is calculated dynamically using the current date and the previous 80 days.
+
+The extracted records are saved to:
+
+sample_output.csv
+
+## Google Sheets Export
+
+Google Sheets export uses a Google Cloud service account.
+
+Place the service account credentials locally as:
+
+credentials.json
+
+Run:
+
+python upload_to_sheet.py
+
+The credentials file is excluded from version control through .gitignore.
+
+## Results
+
+The completed test run produced:
+
+Page 1: 100 records
+Page 2: 55 records
+Total: 155 records
+Unique records: 155
+
+## Google Sheet
+
+The scraped records are available here:
+
+[Google Sheet - SearchIQS Ashford Land Records] (https://docs.google.com/spreadsheets/d/1Dvbo3yjN5x2nwxxmwppzpYuvXQUJ18JGGPe_-krwCXc/edit?usp=sharing)
+
+## Challenge Compliance
+
+- Python used
+- Selenium not used
+- Playwright not used
+- Puppeteer not used
+- Dates calculated dynamically
+- Pagination handled
+- Required fields extracted
